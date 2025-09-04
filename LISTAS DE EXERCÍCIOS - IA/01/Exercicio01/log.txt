@@ -1,0 +1,5 @@
+[INFO] Sistema iniciado
+[ERROR] Falha na conexão
+[INFO] Usuário logado
+[WARNING] Memória insuficiente
+[INFO] Operação concluída
