@@ -1,0 +1,13 @@
+[ {
+  "nome" : "Matheus",
+  "idade" : 29,
+  "hobbies" : [ "Programação", "Assistir futebol", "Jogar Runescape" ]
+}, {
+  "nome" : "Xonha",
+  "idade" : 23,
+  "hobbies" : [ "Mentir", "Mentir mais um pouco" ]
+}, {
+  "nome" : "Juan",
+  "idade" : 36,
+  "hobbies" : [ "Pescaria" ]
+} ]

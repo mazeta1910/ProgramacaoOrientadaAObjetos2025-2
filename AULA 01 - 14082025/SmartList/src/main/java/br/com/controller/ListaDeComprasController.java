@@ -49,6 +49,18 @@ public class ListaDeComprasController {
             case 5:
                 carregarDeArqTexto();
                 break;
+            case 6:
+                salvarEmArquivoBinario();
+                break;
+            case 7:
+                carregarDeArquivoBinario();
+                break;
+            case 8:
+                salvarEmArquivoJson();
+                break;
+            case 9:
+                carregarDeArquivoJson();
+                break;
             case 0:
                 view.exibirMensagem("Saindo...");
                 break;
@@ -71,5 +83,21 @@ public class ListaDeComprasController {
 
     private void exibirLista() {
         view.exibirMensagem(model.toString());
+    }
+
+    private void salvarEmArquivoBinario() {
+        model.salvarEmArquivoBinario("lista_compras.bin");
+    }
+
+    private void carregarDeArquivoBinario() {
+        model.carregarDeArquivoBinario("lista_compras.bin");
+    }
+
+    private void salvarEmArquivoJson() {
+        model.salvarEmArquivoJson("lista_compras.json");
+    }
+
+    private void carregarDeArquivoJson() {
+        model.carregarDeArquivoJson("lista_compras.json");
     }
 }
