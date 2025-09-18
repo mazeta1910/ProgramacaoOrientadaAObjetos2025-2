@@ -1,8 +1,7 @@
 package br.com.controller;
 
-import br.com.model.ListaDeCompras;
+import br.com.model.*;
 import br.com.view.ListaDeComprasView;
-import br.com.model.Produto;
 
 public class ListaDeComprasController {
     private ListaDeCompras model;
@@ -23,12 +22,14 @@ public class ListaDeComprasController {
     }
 
     private void salvarEmAqrTexto() {
-        model.salvarEmArquivoTexto("lista_compras.txt"); //ou "D:/dev/lista_compras.txt"
+        model.setEstrategiaPersistencia(new PersistenciaTexto());
+        model.salvar("lista_compras.txt"); //ou "D:/dev/lista_compras.txt"
 
     }
 
     private void carregarDeArqTexto() {
-        model.carregarDeArquivoTexto("lista_compras.txt"); //ou "D:/dev/lista_compras.txt"
+        model.setEstrategiaPersistencia(new PersistenciaTexto());
+        model.carregar("lista_compras.txt"); //ou "D:/dev/lista_compras.txt"
 
     }
 
@@ -61,6 +62,15 @@ public class ListaDeComprasController {
             case 9:
                 carregarDeArquivoJson();
                 break;
+            case 10:
+                filtrarPorQuantidadeMinima();
+                break;
+            case 11:
+                calcularValorTotal();
+                break;
+            case 12:
+                imprimirLista();
+                break;
             case 0:
                 view.exibirMensagem("Saindo...");
                 break;
@@ -86,18 +96,36 @@ public class ListaDeComprasController {
     }
 
     private void salvarEmArquivoBinario() {
-        model.salvarEmArquivoBinario("lista_compras.bin");
+        model.setEstrategiaPersistencia(new PersistenciaBinario());
+        model.salvar("lista_compras.bin");
     }
 
     private void carregarDeArquivoBinario() {
-        model.carregarDeArquivoBinario("lista_compras.bin");
+        model.setEstrategiaPersistencia(new PersistenciaBinario());
+        model.carregar("lista_compras.bin");
     }
 
     private void salvarEmArquivoJson() {
-        model.salvarEmArquivoJson("lista_compras.json");
+        model.setEstrategiaPersistencia(new PersistenciaJSON());
+        model.salvar("lista_compras.json");
     }
 
     private void carregarDeArquivoJson() {
-        model.carregarDeArquivoJson("lista_compras.json");
+        model.setEstrategiaPersistencia(new PersistenciaJSON());
+        model.carregar("lista_compras.json");
+    }
+
+    private void filtrarPorQuantidadeMinima() {
+        int quantidadeMinima = view.lerQuantidadeMinima();
+        System.out.println(model.filtrarPorQuantidadeMinima(quantidadeMinima).toString());
+    }
+
+    private void calcularValorTotal() {
+        System.out.println("Valor Total R$ " + model.calcularValorTotal());
+    }
+
+    private void imprimirLista() {
+        model.imprimirLista();
+        System.out.println("Valor Total R$ " + model.calcularValorTotal());
     }
 }
