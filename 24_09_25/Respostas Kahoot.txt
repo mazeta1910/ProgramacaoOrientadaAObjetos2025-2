@@ -1,0 +1,123 @@
+ARQUIVOS BINÁRIOS
+
+1) Para escrever dados de tipos primitivos em um arquivo binário, 
+qual é a combinação correta de classes de stream?
+FileOutputStream + BufferedOutputStream + DataOutPutStream
+
+2) No processo de leitura de um arquivo binário, o DataInputStream é o responsável por:
+Converter a sequência de bytes de volta para tipos primitivos java.
+
+3) Ao ler um arquivo binário, por que é comum usar um loop while(true) com um bloco
+try-catch para capturar EOFException?
+Porque arquivos binários não tem um caractere explícito de fim de arquivo.
+
+4) A serialização de um objeto em Java é o processo de:
+Converter objeto numa sequência de bytes para armazenamento ou transmissão.
+
+5) Qual é a principal função da classe ObjectOutputStream?
+Converter objetos em um formato binário.
+
+6) Para que uma classe de objeto possa ser serializada e grava em um arquivo,
+ela deve:
+Implementar a interface Serializable.
+
+7) Qual é a função do modificador trasient em um atributo de uma classe serializável?
+Não serializar ou gravar o valor do atributo no arquivo.
+
+8) Ao gravar dados em um arquivo binário, a principal vantagem do BufferedOutputStream é que ele:
+Armazena os dados em um buffer de memória para otimizar a gravação.
+-----------------------
+ARQUIVOS TEXTO
+
+1) Qual é o principal benefício de usar o bloco try-with-resources ao manipular arquivos em Java?
+Fecha automaticamente os recursos mesmo em caso de erro.
+
+2) No código para escrita de um arquivo, qual a função da linha bw.flush?
+Forçar a gravação dos dados que estão no buffer para o arquivo físico.
+
+3) Qual a classe usada para verificar se um arquivo de texto já existe no sistema de arquivos?
+File 
+
+4) Qual das seguintes classes lê dados de um fluxo de entrada e os armazena em buffer para leitura
+eficiente?
+BufferedReader
+
+5) Qual é a principal diferença entre FileWriter e BufferedWriter ao escrever em um arquivo de texto?
+FileWriter escreve no arquivo, já o BufferedWriter usa um buffer.
+
+6) Para que serve o método bw.newLine()?
+Para escrever uma quebra de linha no arquivo.
+-----------------------
+ARQUIVOS JSON
+
+1) Qual é a dependência do Maven necessária para utilizar a biblioteca Jackson em um projeto java?
+jackson-databind
+
+2) Qual é a classe principal da biblioteca Jackson que converta objetos Java para strings Json e vice-versa?
+ObjectMapper
+
+3) O que o processo de serialização realiza?
+Converte um objeto Java em uma string JSON.
+
+4) O que o processo de desserialização realiza?
+Lê um arquivo JSON e o converte em objeto Java.
+
+5) Qual método da classe ObjectMapper é usado para gravar um objeto Java em um arquivo Json?
+writeValue()
+
+6) Por que usar getTypeFactory e constructCollectionType?
+Para informar o tipo genérico da coleção que o Jackson deve construir.
+
+-------------- 
+Padrões
+
+- Qual o princial objetivo do Padrão de Projeto Singleton?
+Garantir uma única instância de uma classe.
+
+- Como o padrão Singleton previne a criação de novas instâncias?
+Tornando o construtor privado.
+
+- No padrão Singleton, qual é a função do método estático como getInstancia?()
+Retorna a unica instancia da classe.
+
+- Em qual situação o Padrão Singleton é recomendado?
+Quando a classe deve ter apenas uma instância.
+
+- Qual o principal objetivo do Padrão de Projeto Strategy?
+Ter diferentes variantes de um algoritmo.
+
+- No Padrão Strategy, o que a interface PersistenciaStrategy do exemplo de aula representa?
+O contrato para as estratégias.
+
+- Qual o padrão de projeto é usado para garantir que uma lista de compras seja única?
+Singleton
+
+- Qual padrão permite que o usuário escolha dinamicamente entre persistência em texto, binário ou JSON?
+Strategy
+
+---------------------------
+Streams
+
+- Qual é a principal vantagem de usar o método sorted() de um Stream em vez do método sort() de uma lista?
+sorted() retorna uma nova coleção sem alterar a original
+
+- No exemplo pessoas.stream().map(Pessoa::getNome), o que a expressão Pessoa::getNome representa?
+Uma referência de método.
+
+- Para obter a quantidade de pessoas com salários acima de R$5.000,00, qual é a ordem correta das operações de Stream?
+.filter() seguido de .count()
+
+- Qual das seguintes operações é considerada uma operação intermediária em Streams?
+.map()
+
+- O que o método .average() retorna no exemplo pessoas.stream().mapToDouble(Pessoa::getSalario).average
+Calcula a média do salário.
+
+Qual é a função do método .distinct() em um Stream?
+Remove os elementos duplicados do Stream.
+
+No exemplo de soma de salários, o que o método .reduce() faz?
+Reduz os elementos do Stream para um único valor.
+
+Operações intermediárias criam um pipeline de perações que será executado de uma vez só por uma operação terminal.
+Verdadeiro.
